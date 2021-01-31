@@ -109,11 +109,12 @@ func Delete(c *gin.Context) {
 
 	for i := 0; i < len(model.Roles); i++ {
 		if model.Roles[i].ID == uint(newid) {
-			if i == len(model.Roles)-1 {
-				model.Roles = model.Roles[0:i]
-			} else {
-				model.Roles = append(model.Roles[0:i], model.Roles[i+1:]...)
-			}
+			// if i == len(model.Roles)-1 {
+			// 	model.Roles = model.Roles[0:i]
+			// } else {
+			// 	model.Roles = append(model.Roles[0:i], model.Roles[i+1:]...)
+			// }
+			model.Roles = append(model.Roles[0:i], model.Roles[i+1:]...)
 			c.JSON(http.StatusOK, "Delete ok")
 			return
 		}
